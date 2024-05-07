@@ -41,9 +41,15 @@ extension OverviewNavBar {
         super.layoutViews()
         NSLayoutConstraint.activate([
             addButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
-            addButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 15),
+            addButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             addButton.heightAnchor.constraint(equalToConstant: 28),
-            addButton.widt hAnchor.constraint(equalToConstant: 28)
+            addButton.widthAnchor.constraint(equalToConstant: 28),
+            
+            allWorkoutsButton.topAnchor.constraint(equalTo: addButton.topAnchor),
+            allWorkoutsButton.trailingAnchor.constraint(equalTo: addButton.leadingAnchor, constant: -15),
+            allWorkoutsButton.heightAnchor.constraint(equalToConstant: 28),
+            allWorkoutsButton.widthAnchor.constraint(equalToConstant: 130)
+                                                        
         ])
     }
     
