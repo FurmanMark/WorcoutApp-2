@@ -13,6 +13,12 @@ final class OverviewNavBar: BaseView {
     private let allWorkoutsButton = SecondaryButton()
     private let addButton = UIButton()
     
+    private let weekView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .blue.withAlphaComponent(0.2)
+        return view
+    } ()
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         addBottonBorder(with: Resources.Colors.separator, height: 12)
@@ -31,9 +37,10 @@ final class OverviewNavBar: BaseView {
 extension OverviewNavBar {
     override func addViews() {
         
-        addSubview(titleLabel)
-        addSubview(allWorkoutsButton)
-        addSubview(addButton)
+        addView(titleLabel)
+        addView(allWorkoutsButton)
+        addView(addButton)
+        addView(weekView)
          
     }
     
@@ -48,8 +55,18 @@ extension OverviewNavBar {
             allWorkoutsButton.topAnchor.constraint(equalTo: addButton.topAnchor),
             allWorkoutsButton.trailingAnchor.constraint(equalTo: addButton.leadingAnchor, constant: -15),
             allWorkoutsButton.heightAnchor.constraint(equalToConstant: 28),
-            allWorkoutsButton.widthAnchor.constraint(equalToConstant: 130)
-                                                        
+            allWorkoutsButton.widthAnchor.constraint(equalToConstant: 130),
+                
+            titleLabel.centerYAnchor.constraint(equalTo: allWorkoutsButton.centerYAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: allWorkoutsButton.leadingAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            
+            weekView.topAnchor.constraint(equalTo: addButton.bottomAnchor, constant: 15),
+            weekView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            weekView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            weekView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
+            weekView.heightAnchor.constraint(equalToConstant: 47)
+            
         ])
     }
     
@@ -57,16 +74,18 @@ extension OverviewNavBar {
         super.configure()
         backgroundColor = .white
         
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+//        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.text = Resources.Strings.NuvBar.overview
         titleLabel.textColor = Resources.Colors.titleGray
         titleLabel.font = Resources.Fonts.helveticaRegular(with: 22)
         
-        allWorkoutsButton.translatesAutoresizingMaskIntoConstraints = false
+//        allWorkoutsButton.translatesAutoresizingMaskIntoConstraints = false
         allWorkoutsButton.setTitle(Resources.Strings.Overview.allWorkoutsButton)
         
-        addButton.translatesAutoresizingMaskIntoConstraints = false
+//        addButton.translatesAutoresizingMaskIntoConstraints = false
         addButton.setImage(Resources.Images.Common.add, for: .normal)
+        
+//        weekView.translatesAutoresizingMaskIntoConstraints = false
     }
 }
 
