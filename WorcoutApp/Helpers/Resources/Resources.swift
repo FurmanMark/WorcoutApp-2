@@ -12,3 +12,6 @@ enum Resources {
 }
 
 
+case one {
+
+}
