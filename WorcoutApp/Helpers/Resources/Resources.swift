@@ -10,8 +10,3 @@ import UIKit
 enum Resources {
 
 }
-
-
-case one {
-
-}
