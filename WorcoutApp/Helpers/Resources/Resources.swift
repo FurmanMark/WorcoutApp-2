@@ -13,5 +13,5 @@ enum Resources {
 
 
 case one {
-
+ let one = 1
 }
